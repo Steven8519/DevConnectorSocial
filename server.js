@@ -7,7 +7,9 @@ const app = express();
 // Connect to Database
 connectDB();
 
-app.get('', (request, response) => response.send('API is running'))
+app.get('', (request, response) => response.send('API is running'));
+
+app.use('/api/users', require('./routes/api/users'));
 
 const PORT = process.env.PORT || 5000;
 
