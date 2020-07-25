@@ -7,6 +7,8 @@ const app = express();
 // Connect to Database
 connectDB();
 
+app.use(express.json({ extended: false}))
+
 app.get('', (request, response) => response.send('API is running'));
 
 // routes

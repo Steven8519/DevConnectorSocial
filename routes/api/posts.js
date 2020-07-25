@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 // @route     Get api/posts
-// @desc      Test route
+// @desc      
 // @access    Public
-router.get('/', (request, response) => {
+router.post('/', (request, response) => {
+    
     response.send('Post route');
 });
 
