@@ -100,11 +100,11 @@ router.post('/', [auth, [
 
 // @route     GET api/profile
 // @desc      GET profile by user ID
-// @access    Publice
+// @access    Public
 router.get('/', async (request, response) => {
     try {
         const profiles = await Profile.find().populate('user', ['name', 'avatar']);
-
+        res.json(profiles);
     } catch (error) {
         console.error(error.message);
         response.status(500).send('Server error');
@@ -313,7 +313,7 @@ router.delete('/education/:edu_id', auth, async (request, response) => {
 // @route     GET api/profile/github/:username
 // @desc      GET user repos from Github
 // @access    Public
-router.get('/github/:username', (request, response) => {
+router.get('/github/:username', async (request, response) => {
     try {
         const options = {
             uri: `https://api.github.com/users/${request.params.username}/repos?per_page=5&sort=created:asc
